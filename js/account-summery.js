@@ -1,31 +1,33 @@
 // main website background color 
 document.body.style.backgroundColor = '#6867AC';
-// capture deposit input and show in deposite amount  
-document.getElementById('btn-deposit-input').addEventListener('click', function () {
-    // shortcut 
-    /*  parseFloat(document.getElementById('deposit-amount').innerText) + parseFloat(document.getElementById('input-deposit-amount').value);
-     document.getElementById('deposit-amount').innerText = parseFloat(document.getElementById('deposit-amount').innerText) + parseFloat(document.getElementById('input-deposit-amount').value); */
 
-    // using shortcut and variable
-    /*  const depositInputValue = parseFloat(document.getElementById('input-deposit-amount').value);
-     const depositAmount = parseFloat(document.getElementById('deposit-amount').innerText);
-     const result = depositInputValue + depositAmount;
-     document.getElementById('deposit-amount').innerText = result; */
-
-    // using variable and best practice 
+// function for capturing deposit input value 
+function getInputValue() {
     const depositInput = document.getElementById('input-deposit-amount');
-    const depositInputNumber = parseFloat(depositInput.value);
-    const depositeAmount = document.getElementById('deposit-amount');
-    const depositAmountNumber = parseFloat(depositeAmount.innerText);
-    const sum = depositInputNumber + depositAmountNumber;
-    depositeAmount.innerText = sum;
+    const depositeInputValue = depositInput.value;
+    const depositInputValueNumber = parseFloat(depositeInputValue);
     // clear input field after clicking 
     depositInput.value = '';
+    return depositInputValueNumber;
+}
+
+// capture deposit input and show in deposite amount  
+document.getElementById('btn-deposit-input').addEventListener('click', function () {
+    /*  const depositInput = document.getElementById('input-deposit-amount');
+     const depositeInputValue = depositInput.value;
+     const depositInputValueNumber = parseFloat(depositeInputValue); */
+    const depositeInputValueFunction = getInputValue();
+    const depositeAmount = document.getElementById('deposit-amount');
+    const depositeAmountInnerText = depositeAmount.innerText;
+    const depositAmountInnerTextNumber = parseFloat(depositeAmountInnerText);
+    const depositSum = depositAmountInnerTextNumber + depositeInputValueFunction;
+    depositeAmount.innerText = depositSum;
     // updating account balance 
-    const balance = document.getElementById('balance-amount');
-    const balanceAmountNumber = parseFloat(balance.innerText);
-    const totalBalanceAmountNumber = depositInputNumber + balanceAmountNumber;
-    balance.innerText = totalBalanceAmountNumber;
+    const balanceAmount = document.getElementById('balance-amount');
+    const balanceAmountInnerText = balanceAmount.innerText;
+    const balanceAmountInnerTextNumber = parseFloat(balanceAmountInnerText);
+    const totalBalanceAmountNumber = depositeInputValueFunction + balanceAmountInnerTextNumber;
+    balanceAmount.innerText = totalBalanceAmountNumber;
 })
 // withdraw amount add then deduct from balance amount 
 document.getElementById('btn-withdraw-input').addEventListener('click', function () {
