@@ -3,12 +3,12 @@ document.body.style.backgroundColor = '#6867AC';
 
 // function for capturing deposit input value 
 function getInputValue(inputId) {
-    const depositInput = document.getElementById(inputId);
-    const depositeInputValue = depositInput.value;
-    const depositInputValueNumber = parseFloat(depositeInputValue);
+    const input = document.getElementById(inputId);
+    const inputValue = input.value;
+    const inputValueToNumber = parseFloat(inputValue);
     // clear input field after clicking 
-    depositInput.value = '';
-    return depositInputValueNumber;
+    input.value = '';
+    return inputValueToNumber;
 }
 
 // capture deposit input and show in deposite amount  
@@ -31,21 +31,21 @@ document.getElementById('btn-deposit-input').addEventListener('click', function 
 })
 // withdraw amount add then deduct from balance amount 
 document.getElementById('btn-withdraw-input').addEventListener('click', function () {
-    const withdrawInput = document.getElementById('input-withdraw-amount');
+    /* const withdrawInput = document.getElementById('input-withdraw-amount');
     const withdrawInputValue = withdrawInput.value;
-    const withdrawInputValueNumber = parseFloat(withdrawInputValue);
+    const withdrawInputValueNumber = parseFloat(withdrawInputValue); */
+    const withdarwInputValueNumber = getInputValue('input-withdraw-amount');
     const withdrawInputAmount = document.getElementById('withdarw-amount');
     const withdrawInputAmountInnerText = withdrawInputAmount.innerText;
     const withdrawInputAmountInnerTextNumber = parseFloat(withdrawInputAmountInnerText);
-    const withdrawInputAmountInnerTextNumberTotal = withdrawInputValueNumber + withdrawInputAmountInnerTextNumber;
+    const withdrawInputAmountInnerTextNumberTotal = withdarwInputValueNumber + withdrawInputAmountInnerTextNumber;
     withdrawInputAmount.innerText = withdrawInputAmountInnerTextNumberTotal;
     // deduct from balance 
     const balanceAmount = document.getElementById('balance-amount');
     const balanceAmountInnerText = balanceAmount.innerText;
     const balanceAmountInnerTextNumber = parseFloat(balanceAmountInnerText);
-    const balanceAmountInnerTextNumberTotal = balanceAmountInnerTextNumber + withdrawInputAmountInnerTextNumber;
-    balance.innerText = balanceAmountInnerTextNumberTotal - withdrawInputAmountInnerTextNumber;
+    const totalBalanceAmountNumber = withdarwInputValueNumber + balanceAmountInnerTextNumber;
+    balanceAmount.innerText = totalBalanceAmountNumber;
     // clear input field after clicking 
-    withdrawInput.value = '';
 })
 
