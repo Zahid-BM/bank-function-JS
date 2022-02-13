@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Banking</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="text-6xl text-center mt-16 font-semibold">Your <span class="text-orange-500">Account</span>
+            Summery!
+        </h1>
+    </header>
+    <main class="mx-auto w-4/6">
+        <!-- account summery -->
+        <section class="mt-10">
+            <div class="grid grid-cols-3 gap-4  ">
+                <div class="bg-red-300 p-12 radius-md rounded-2xl">
+                    <h4 class="text-2xl text-white">Deposit</h4>
+                    <h3 class="text-5xl text-white">$<span id="deposit-amount">00</span></h3>
+                </div>
+                <div class="bg-yellow-500 p-12 radius-md rounded-2xl">
+                    <h4 class="text-2xl text-white">Withdraw</h4>
+                    <h3 class="text-5xl text-white">$<span id="withdarw-amount">00</span></h3>
+                </div>
+                <div class="bg-lime-600 p-12 radius-md rounded-2xl">
+                    <h4 class="text-2xl text-white">Balance</h4>
+                    <h3 class="text-5xl text-white">$<span id="balance-amount">132</span></h3>
+                </div>
+            </div>
+        </section>
+        <!-- input section  -->
+        <section class="mt-6">
+            <div class="grid grid-cols-2 gap-4 ">
+                <div class="bg-violet-800 p-10 rounded">
+                    <h4 class="text-3xl mb-8  text-slate-400 font-semibold">Deposit your amount</h4>
+                    <input id="input-deposit-amount" class=" border border-slate-300 block mb-4 pl-5 rounded"
+                        type="text" placeholder="input deposit $amount">
+                    <button id="btn-deposit-input"
+                        class="text-white font-medium bg-purple-400 px-8 py-2 rounded mt-2">Deposit</button>
+                </div>
+                <div class="bg-fuchsia-800 p-10 rounded">
+                    <h4 class="text-3xl mb-8  text-slate-400 font-semibold">Withdraw your amount</h4>
+                    <input id="input-withdraw-amount" class=" border border-slate-300 block mb-4 pl-5 rounded"
+                        type="text" placeholder="input withdraw $amount">
+                    <button id="btn-withdraw-input"
+                        class="text-white font-medium bg-purple-400 px-8 py-2 rounded mt-2">Withdraw</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/account-summery.js"></script>
+</body>
+
+</html>
