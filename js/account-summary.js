@@ -11,22 +11,19 @@ function gettingInputValue(inputIdName) {
     return inputValueToNumber;
 }
 // function for capturing input total value 
-function inputTotalSum(amountidName) {
-    const totalInputAmount = document.getElementById(amountidName)
-    const totalInputAmountInnerText = totalInputAmount.innerText;
-    const totalInputAmountInnerTextNumber = parseFloat(totalInputAmountInnerText);
-    totalInputAmount.innerText = totalInputAmountInnerTextNumber;
-    return totalInputAmountInnerTextNumber;
+function inputTotalSum() {
+
 }
 
 // capture deposit input and show in deposite amount  
 document.getElementById('btn-deposit-input').addEventListener('click', function () {
     const depositeInputValueNumber = gettingInputValue('input-deposit-amount');
-    const totalDeposit = inputTotalSum('deposit-amount');
-    const depositAmount = document.getElementById('deposit-amount');
-    const depositSummery = totalDeposit + depositeInputValueNumber;
-    // console.log('Success');
-    depositAmount.innerText = depositSummery;
+    const depositeAmount = document.getElementById('deposit-amount');
+    const depositAmountNumber = parseFloat(depositeAmount.innerText);
+    const sum = depositeInputValueNumber + depositAmountNumber;
+    depositeAmount.innerText = sum;
+    // clear input field after clicking 
+    depositeInputValueNumber.value = '';
     // updating account balance 
     const balanceAmount = document.getElementById('balance-amount');
     const balanceAmountInnerText = balanceAmount.innerText;
@@ -38,9 +35,9 @@ document.getElementById('btn-deposit-input').addEventListener('click', function 
 document.getElementById('btn-withdraw-input').addEventListener('click', function () {
     const withdarwInputValueNumber = gettingInputValue('input-withdraw-amount');
     const totalwithdraw = inputTotalSum('withdarw-amount');
-    const withdrawSummery = totalwithdraw + withdarwInputValueNumber;
+    const withdrawSummary = totalwithdraw + withdarwInputValueNumber;
     const withdrawInputAmount = document.getElementById('withdarw-amount');
-    withdrawInputAmount.innerText = withdrawSummery;
+    withdrawInputAmount.innerText = withdrawSummary;
     // deduct from balance 
     const balanceAmount = document.getElementById('balance-amount');
     const balanceAmountInnerText = balanceAmount.innerText;
